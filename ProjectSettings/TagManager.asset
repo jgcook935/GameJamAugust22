@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Dialogable
+    uniqueID: 1330633505
+    locked: 0
   - name: Layer2
     uniqueID: 1680111515
     locked: 0
