@@ -16,6 +16,8 @@ public class PauseCanvas : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             canvasGroup.alpha = 1;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
             // TODO: lock character movement
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,6 +30,8 @@ public class PauseCanvas : MonoBehaviour
     {
         Debug.Log("Resume button pressed. Resuming.");
         canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void QuitGame()
