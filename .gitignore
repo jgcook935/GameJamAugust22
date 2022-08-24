@@ -62,3 +62,4 @@ fmod_editor.log
 TopDownSurvival_FMOD/.cache/**
 TopDownSurvival_FMOD/.unsaved/**
 TopDownSurvival_FMOD/.user/**
+.DS_Store
