@@ -2698,6 +2698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 616041472261905295, guid: 52fd857d22fdb4b97b3eecf9f0bd459e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 616041472261905333, guid: 52fd857d22fdb4b97b3eecf9f0bd459e, type: 3}
       propertyPath: m_Name
       value: Mac Donaldson
