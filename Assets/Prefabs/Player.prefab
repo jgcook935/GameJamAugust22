@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4785648116179395851}
   - component: {fileID: 4009584208722663625}
   - component: {fileID: 6679047968788404755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SwordGraphics
   m_TagString: Weapon
   m_Icon: {fileID: 0}
