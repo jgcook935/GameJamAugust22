@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     bool canMove = true;
     float tileScale = 1; //0.15f;
-    Vector2 movement;
+    public Vector2 movement;
 
     public float moveSpeed = 10f;
     public Rigidbody2D rb;
