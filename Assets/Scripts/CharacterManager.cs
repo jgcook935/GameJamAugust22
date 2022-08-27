@@ -41,6 +41,9 @@ public class CharacterManager : MonoBehaviour
         player1 = Instantiate(playerOnePrefab, transform).GetComponent<PlayerMovement>();
         players.Add(player1);
 
+        var sceneLocation = ChangeScenesManager.Instance.GetSceneLocation();
+        if (sceneLocation != Vector2.zero) player1.transform.position = sceneLocation;
+
         if (hasPlayerTwoSO.Value) AddPlayer(Instantiate(playerTwoPrefab, transform).GetComponent<PlayerMovement>());
 
         SetActivePlayerIndex(activePlayerSO.Value);
@@ -84,6 +87,7 @@ public class CharacterManager : MonoBehaviour
         {
             players.Add(newPlayer);
             player2 = newPlayer;
+            player2.transform.position = player1.transform.position;
         }
     }
 

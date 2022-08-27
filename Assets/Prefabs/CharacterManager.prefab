@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4423764759652028276}
   - component: {fileID: 4423764759652028279}
+  - component: {fileID: 4373234044949943048}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -49,3 +50,20 @@ MonoBehaviour:
   mainCameraPrefab: {fileID: 2650917369179433929, guid: ed18698fd1fcd5c47849fdb5250e9383, type: 3}
   hasPlayerTwoSO: {fileID: 11400000, guid: e010ddc7c3e59424dbf6add68c2afb41, type: 2}
   activePlayerSO: {fileID: 11400000, guid: 5bf5c928544c1164ea232985bd38452f, type: 2}
+--- !u!114 &4373234044949943048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423764759652028278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605efd805a9603440bd00d60744890e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitions: []
+  sceneLocationSO_1: {fileID: 11400000, guid: 851b64586de348a428944a55ef96bef5, type: 2}
+  sceneLocationSO_2: {fileID: 11400000, guid: 40d26459d44d829449c92e2cf4e7341e, type: 2}
+  sceneLocationSO_3: {fileID: 11400000, guid: a38ffedb2670f484388599521279d297, type: 2}
+  sceneLocationSO_4: {fileID: 11400000, guid: 8e319af16af20fd45bce911a4523f63f, type: 2}

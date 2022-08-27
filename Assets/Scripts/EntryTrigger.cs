@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EntryTrigger : MonoBehaviour
 {
-    [SerializeField] int sceneIndex;
+    [SerializeField] int sceneToSwitchToIndex;
+    public Transform spawnTransform;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +16,7 @@ public class EntryTrigger : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene(sceneIndex);
+        ChangeScenesManager.Instance.SetSceneLocation(spawnTransform.position);
+        SceneManager.LoadScene(sceneToSwitchToIndex);
     }
 }
