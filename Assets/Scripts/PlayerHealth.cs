@@ -8,9 +8,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (collision.otherCollider.CompareTag("Player"))
+            {
+                Debug.Log($"Player was touched by the enemy - DO DAMAGE STUFF HERE");
+            }
             var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
             health -= damage;
-            //Debug.Log($"Player was damaged by enemy by {damage} hp points");
         }
     }
 }

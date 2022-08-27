@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9047816116682294535}
   m_Layer: 8
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 6679047968788404755}
   m_Layer: 0
   m_Name: SwordGraphics
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
   moveSpeed: 10
   rb: {fileID: 6286470509667901514}
   animator: {fileID: 6286470509667901518}
+  isActivePlayer: 0
 --- !u!50 &6286470509667901514
 Rigidbody2D:
   serializedVersion: 4
@@ -324,7 +325,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01901865, y: -0.000000059604645}
+  m_Offset: {x: -0.00024455786, y: 0.023391008}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -335,7 +336,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86430264, y: 1.2503778}
+  m_Size: {x: 0.85329497, y: 1.1320462}
   m_EdgeRadius: 0
 --- !u!95 &6286470509667901518
 Animator:
@@ -380,7 +381,7 @@ GameObject:
   - component: {fileID: 3849836106661047073}
   m_Layer: 8
   m_Name: PivotPoint
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

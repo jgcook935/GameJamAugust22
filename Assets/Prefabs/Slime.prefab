@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 99783084}
   - component: {fileID: 7069370922792550952}
   - component: {fileID: 1612381162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bffe6d5cc2448a8b0dc0b4cf93ad1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3172376131395541377}
+  target: {fileID: 0}
   speed: 300
   nextWaypointDistance: 1
   enemyGraphics: {fileID: 3172376131395541377}
@@ -130,8 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96e66c1f18ff4442b599d9ffa6b3b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
   damage: 10
 --- !u!95 &7069370922792550952
 Animator:
