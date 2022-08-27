@@ -15,6 +15,7 @@ public class PlayerTwoActivate : MonoBehaviour, IClickable
     void Start()
     {
         characterManager = CharacterManager.Instance;
+        if (hasPlayerTwo.Value) beenClicked = true;
     }
 
     public void Click()
