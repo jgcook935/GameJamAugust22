@@ -7,20 +7,19 @@ public class CharacterManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement player1;
     [SerializeField] PlayerMovement player2;
+    [SerializeField] PlayerMovement player3;
 
-    public bool playerFollow;
+    public bool followPlayer2;
 
 
     LinkedList<Vector3> currentPlayerPositions = new LinkedList<Vector3>();
-    int maxLinkedListCount = 5;
+    int maxLinkedListCount = 5; // 5 per player is probably good
 
-    // Start is called before the first frame update
     void Start()
     {
         currentPlayerPositions.AddFirst(player1.gameObject.transform.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(player1.transform.position != currentPlayerPositions.First())
@@ -30,7 +29,7 @@ public class CharacterManager : MonoBehaviour
             currentPlayerPositions.AddFirst(player1.gameObject.transform.position);
 
         }
-        if (playerFollow && currentPlayerPositions.Count > 3)
+        if (followPlayer2 && currentPlayerPositions.Count > 3)
         {
             player2.transform.position = currentPlayerPositions.ElementAt(4);
 
@@ -38,5 +37,19 @@ public class CharacterManager : MonoBehaviour
             player2.animator.SetFloat("Vertical", player1.movement.y);
             player2.animator.SetFloat("Speed", player1.movement.sqrMagnitude);
         }
+    }
+
+    public void AddPlayer(PlayerMovement newPlayer)
+    {
+        if (!player2)
+        {
+            player2 = newPlayer;
+            followPlayer2 = true;
+        }
+        else if (!player3)
+        {
+            player3 = newPlayer;
+        }
+
     }
 }
