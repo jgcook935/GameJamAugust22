@@ -3,12 +3,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private float currentHealth = 30f;
-    public float damage = 10f;
+    private float currentHealth;
+    public float damage;
 
     private Rigidbody2D rb;
-    private float strength = 16f;
+    private float strength;
     private float delay = .15f;
+
+    private void Awake()
+    {
+        var random = Random.Range(2, 7);
+        currentHealth = 10 * random;
+        damage = 5 * random;
+        strength = 40 / random;
+    }
 
     private void Start()
     {

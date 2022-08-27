@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
 public class EnemyAi : MonoBehaviour
 {
     public Transform target;
-    public float speed = 200f;
+    public float speed;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGraphics;
@@ -18,7 +16,11 @@ public class EnemyAi : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        speed = Random.Range(7, 12) * 20;
+    }
+
     void Start()
     {
         seeker = GetComponent<Seeker>();

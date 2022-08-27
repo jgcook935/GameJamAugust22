@@ -31,9 +31,9 @@ public class PlayerHealth : MonoBehaviour
             {
                 if (isImmune) return;
                 StartCoroutine(FlashSprite());                
-                Healthbar.Instance.DecreaseHealth();
                 var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
                 currentHealth -= damage;
+                Healthbar.Instance.DecreaseHealth();
             }
         }
     }
