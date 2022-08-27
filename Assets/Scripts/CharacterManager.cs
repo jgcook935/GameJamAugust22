@@ -15,8 +15,6 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    private PlayerMovement player1;
-    private PlayerMovement player2;
 
     [HideInInspector] public PlayerMovement activePlayer;
 
@@ -25,50 +23,78 @@ public class CharacterManager : MonoBehaviour
 
     [SerializeField] BoolSO hasPlayerTwoSO;
 
+    [SerializeField] FloatSO activePlayerSO;
+
     [SerializeField] GameObject mainCameraPrefab;
 
+    private PlayerMovement player1;
+    private PlayerMovement player2;
     private CameraController cameraController;
 
-    LinkedList<Vector3> currentPlayerPositions = new LinkedList<Vector3>();
-    int maxLinkedListCount = 5; // 5 per player is probably good
+    private List<PlayerMovement> players = new List<PlayerMovement>();
+    private LinkedList<Vector3> activePlayerPosition = new LinkedList<Vector3>();
+    private const int maxLinkedListCount = 10;
+
+    private int playerCount = 0;
 
     void Start()
     {
         cameraController = Instantiate(mainCameraPrefab, transform).GetComponent<CameraController>();
 
         player1 = Instantiate(playerOnePrefab, transform).GetComponent<PlayerMovement>();
+        players.Add(player1);
 
         if (hasPlayerTwoSO.Value)
         {
             var newPlayer = Instantiate(playerTwoPrefab, transform);
             newPlayer.transform.position = player1.transform.position;
             player2 = newPlayer.GetComponent<PlayerMovement>();
+            players.Add(player2);
         }
 
-        activePlayer = player1; // todo use BoolSO
+        if(activePlayerSO.Value == 2)
+        {
+            player2.isActivePlayer = true;
+            player2.enabled = true;
+            activePlayer = player2;
+            player1.enabled = false;
+            activePlayerSO.Value = 2;
+        }
+        else
+        {
+            player1.isActivePlayer = true;
+            player1.enabled = true;
+            activePlayer = player1;
+            if(player2 != null) player2.enabled = false;
+            activePlayerSO.Value = 1;
+        }
 
         cameraController.target = activePlayer.transform;
 
-        currentPlayerPositions.AddFirst(activePlayer.transform.position);
+        activePlayerPosition.AddFirst(activePlayer.transform.position);
     }
 
     void Update()
     {
-        if (player1.transform.position != currentPlayerPositions.First())
+        if (activePlayer.transform.position != activePlayerPosition.First())
         {
-            if (currentPlayerPositions.Count >= maxLinkedListCount)
-                currentPlayerPositions.RemoveLast();
-            currentPlayerPositions.AddFirst(player1.gameObject.transform.position);
+            if (activePlayerPosition.Count >= maxLinkedListCount)
+                activePlayerPosition.RemoveLast();
+            activePlayerPosition.AddFirst(activePlayer.gameObject.transform.position);
         }
 
-        if (currentPlayerPositions.Count > 4)
+        var followerIndex = 1;
+        foreach (var player in players)
         {
-            if (player2 != null)
+            if (activePlayerPosition.Count > 4 * followerIndex)
             {
-                player2.transform.position = currentPlayerPositions.ElementAt(4);
-                player2.animator.SetFloat("Horizontal", player1.movement.x);
-                player2.animator.SetFloat("Vertical", player1.movement.y);
-                player2.animator.SetFloat("Speed", player1.movement.sqrMagnitude);
+                if (!player.enabled)
+                {
+                    player.transform.position = activePlayerPosition.ElementAt(4 * followerIndex);
+                    player.animator.SetFloat("Horizontal", activePlayer.movement.x);
+                    player.animator.SetFloat("Vertical", activePlayer.movement.y);
+                    player.animator.SetFloat("Speed", activePlayer.movement.sqrMagnitude);
+                }
             }
         }
 
@@ -82,23 +108,30 @@ public class CharacterManager : MonoBehaviour
     {
         if (!player2)
         {
+            players.Add(newPlayer);
             player2 = newPlayer;
         }
-        //else if (!player3)
-        //{
-        //    player3 = newPlayer;
-        //}
     }
 
     void RotatePlayers()
     {
-        PlayerMovement playerTemp = player1;
-        player1 = player2;
-        player2 = playerTemp;
+        if (activePlayer == player1)
+        {
+            player2.isActivePlayer = true;
+            player2.enabled = true;
+            activePlayer = player2;
+            player1.enabled = false;
+            activePlayerSO.Value = 2;
+        }
+        else
+        {
+            player1.isActivePlayer = true;
+            player1.enabled = true;
+            activePlayer = player1;
+            player2.enabled = false;
+            activePlayerSO.Value = 1;
+        }
 
-        if (player1) player1.enabled = true;
-        if (player2) player2.enabled = false;
-
-        cameraController.target = player1.gameObject.transform;
+        cameraController.target = activePlayer.transform;
     }
 }

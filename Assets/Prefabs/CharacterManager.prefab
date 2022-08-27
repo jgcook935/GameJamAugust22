@@ -47,4 +47,5 @@ MonoBehaviour:
   playerOnePrefab: {fileID: 6286470509667901556, guid: dbd30420a34405e46ab76462bda22e2b, type: 3}
   playerTwoPrefab: {fileID: 1318500144012136662, guid: 1116f025aa7e3e1429a6e9734172554c, type: 3}
   hasPlayerTwoSO: {fileID: 11400000, guid: e010ddc7c3e59424dbf6add68c2afb41, type: 2}
+  activePlayerSO: {fileID: 11400000, guid: 0124b9ba7eb59a64692ead52e1d40de2, type: 2}
   mainCameraPrefab: {fileID: 2650917369179433929, guid: ed18698fd1fcd5c47849fdb5250e9383, type: 3}

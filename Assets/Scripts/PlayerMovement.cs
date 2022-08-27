@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    [HideInInspector] public bool isActivePlayer = false;
+
     static PlayerMovement _instance;
     public static PlayerMovement Instance
     {
