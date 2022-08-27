@@ -30,6 +30,7 @@ public class EnemyAi : MonoBehaviour
     void UpdatePath()
     {
         if (!seeker.IsDone()) return;
+        if (target == null) target = CharacterManager.Instance.activePlayer.transform;
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -42,7 +43,6 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (path == null) return;

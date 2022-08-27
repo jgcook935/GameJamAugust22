@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    static CameraController _instance;
-    public static CameraController Instance
-    {
-        get
-        {
-            if (_instance == null) _instance = FindObjectOfType<CameraController>();
-            return _instance;
-        }
-    }
+    //static CameraController _instance;
+    //public static CameraController Instance
+    //{
+    //    get
+    //    {
+    //        if (_instance == null) _instance = FindObjectOfType<CameraController>();
+    //        return _instance;
+    //    }
+    //}
 
     public Transform target;
 

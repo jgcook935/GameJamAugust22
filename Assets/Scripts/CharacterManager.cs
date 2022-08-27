@@ -15,28 +15,41 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    [SerializeField] PlayerMovement player1;
-    [SerializeField] PlayerMovement player2;
-    //[SerializeField] PlayerMovement player3;
+    private PlayerMovement player1;
+    private PlayerMovement player2;
 
+    [HideInInspector] public PlayerMovement activePlayer;
+
+    [SerializeField] GameObject playerOnePrefab;
     [SerializeField] GameObject playerTwoPrefab;
+
     [SerializeField] BoolSO hasPlayerTwoSO;
 
-    CameraController cameraController;
+    [SerializeField] GameObject mainCameraPrefab;
+
+    private CameraController cameraController;
 
     LinkedList<Vector3> currentPlayerPositions = new LinkedList<Vector3>();
     int maxLinkedListCount = 5; // 5 per player is probably good
 
     void Start()
     {
-        currentPlayerPositions.AddFirst(player1.gameObject.transform.position);
-        cameraController = CameraController.Instance;
+        cameraController = Instantiate(mainCameraPrefab, transform).GetComponent<CameraController>();
+
+        player1 = Instantiate(playerOnePrefab, transform).GetComponent<PlayerMovement>();
+
         if (hasPlayerTwoSO.Value)
         {
             var newPlayer = Instantiate(playerTwoPrefab, transform);
             newPlayer.transform.position = player1.transform.position;
             player2 = newPlayer.GetComponent<PlayerMovement>();
         }
+
+        activePlayer = player1; // todo use BoolSO
+
+        cameraController.target = activePlayer.transform;
+
+        currentPlayerPositions.AddFirst(activePlayer.transform.position);
     }
 
     void Update()
