@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float currentHealth = 100f;
-    public float maxHealth = 100f;
+    private float currentHealth = 30f;
     public float damage = 10f;
 
     private Rigidbody2D rb;
