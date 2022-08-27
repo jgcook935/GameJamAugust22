@@ -454,10 +454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0}
-  moveSpeed: 10
+  moveSpeed: 5
   rb: {fileID: 6286470509667901514}
   animator: {fileID: 6286470509667901518}
   isActivePlayer: 0
+  sprintMultiplier: 1.5
 --- !u!50 &6286470509667901514
 Rigidbody2D:
   serializedVersion: 4
@@ -538,8 +539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 200
   maxHealth: 200
-  spriteRenderer: {fileID: 0}
-  boxCollider: {fileID: 0}
 --- !u!1 &7367161377320506352
 GameObject:
   m_ObjectHideFlags: 0

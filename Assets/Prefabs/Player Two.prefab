@@ -102,9 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0}
-  moveSpeed: 10
+  moveSpeed: 7
   rb: {fileID: 1318500144012136680}
   animator: {fileID: 1318500144012136684}
+  isActivePlayer: 0
+  sprintMultiplier: 1.5
 --- !u!50 &1318500144012136680
 Rigidbody2D:
   serializedVersion: 4
@@ -184,6 +186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  spriteRenderer: {fileID: 0}
+  boxCollider: {fileID: 0}
 --- !u!114 &5004140725871079608
 MonoBehaviour:
   m_ObjectHideFlags: 0

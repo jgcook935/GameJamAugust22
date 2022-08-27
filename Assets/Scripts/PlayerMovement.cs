@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public bool isActivePlayer = false;
 
+    [SerializeField] float sprintMultiplier = 1.5f;
+
     static PlayerMovement _instance;
     public static PlayerMovement Instance
     {
@@ -26,8 +28,16 @@ public class PlayerMovement : MonoBehaviour
         if (DialogBoxController.Instance != null && DialogBoxController.Instance.isOpen) return;
 
         // handle movement
+        var totalMoveSpeed = moveSpeed;
+        if (CharacterManager.Instance.activePlayerSO.Value == 2)
+        {
+            animator.SetBool("IsPlayerTwo", true);
+            totalMoveSpeed *= sprintMultiplier;
+        } 
+        else animator.SetBool("IsPlayerTwo", false);
+
         var moveDirection = movement.normalized;
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed * tileScale, moveDirection.y * moveSpeed * tileScale);
+        rb.velocity = new Vector2(moveDirection.x * totalMoveSpeed * tileScale, moveDirection.y * totalMoveSpeed * tileScale);
     }
 
     void Update()

@@ -21,8 +21,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject playerTwoPrefab;
     [SerializeField] GameObject mainCameraPrefab;
     [SerializeField] BoolSO hasPlayerTwoSO;
-    [SerializeField] IntSO activePlayerSO;
-
+    public IntSO activePlayerSO;
 
     private PlayerMovement player1;
     private PlayerMovement player2;
@@ -31,8 +30,6 @@ public class CharacterManager : MonoBehaviour
     private List<PlayerMovement> players = new List<PlayerMovement>();
     private LinkedList<Vector3> activePlayerPosition = new LinkedList<Vector3>();
     private const int maxLinkedListCount = 10;
-
-    private int playerCount = 0;
 
     void Start()
     {
@@ -71,6 +68,7 @@ public class CharacterManager : MonoBehaviour
                     player.animator.SetFloat("Horizontal", activePlayer.movement.x);
                     player.animator.SetFloat("Vertical", activePlayer.movement.y);
                     player.animator.SetFloat("Speed", activePlayer.movement.sqrMagnitude);
+                    player.animator.SetBool("IsPlayerTwo", false);
                 }
             }
         }
