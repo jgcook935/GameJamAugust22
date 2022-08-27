@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    bool canMove = true;
     float tileScale = 1; //0.15f;
     public Vector2 movement;
 
@@ -24,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canMove) return;
+        if (DialogBoxController.Instance != null && DialogBoxController.Instance.isOpen) return;
 
         // handle movement
         var moveDirection = movement.normalized;
@@ -33,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (DialogBoxController.Instance != null && DialogBoxController.Instance.isOpen) return;
+
         // handle input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -40,10 +41,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        this.canMove = canMove;
     }
 }

@@ -4,21 +4,25 @@ using UnityEngine.UI;
 
 public class DialogBoxController : MonoBehaviour, IClickable
 {
-    bool isOpen = false;
+    public bool isOpen = false;
     int textIndex = 0;
     List<string> text = new List<string>();
 
     Animator animator => GetComponentInChildren<Animator>();
 
+    static DialogBoxController _instance;
+    public static DialogBoxController Instance
+    {
+        get
+        {
+            if (_instance == null) _instance = FindObjectOfType<DialogBoxController>();
+            return _instance;
+        }
+    }
+
     void Awake()
     {
         isOpen = true;
-        // PlayerMovement.Instance.SetCanMove(false);
-    }
-
-    void OnDestroy()
-    {
-        // PlayerMovement.Instance.SetCanMove(true);
     }
 
     void Update()
