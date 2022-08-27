@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTwoActivate : MonoBehaviour, IClickable
@@ -10,7 +8,6 @@ public class PlayerTwoActivate : MonoBehaviour, IClickable
     [SerializeField] BoolSO hasPlayerTwo;
     GameObject dialogBox;
     bool beenClicked = false;
-
 
     void Start()
     {
@@ -26,6 +23,7 @@ public class PlayerTwoActivate : MonoBehaviour, IClickable
             dialogBox = Instantiate(dialogBoxPrefab, transform);
             dialogBox.GetComponent<DialogBoxController>().SetText(GetComponent<ISign>().text);
             characterManager.AddPlayer(playerMovement);
+            gameObject.layer = 8; // change player 2 to use the player layer for physics and stuff
             hasPlayerTwo.Value = true;
         }
     }

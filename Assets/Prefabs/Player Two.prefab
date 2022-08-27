@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5457194138039174263}
   - component: {fileID: 5004140725871079608}
   - component: {fileID: 1061575337}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Player Two
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -185,9 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec7e72938c3f4b26961508eee9eb38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  spriteRenderer: {fileID: 0}
-  boxCollider: {fileID: 0}
+  currentHealth: 200
+  maxHealth: 200
 --- !u!114 &5004140725871079608
 MonoBehaviour:
   m_ObjectHideFlags: 0
