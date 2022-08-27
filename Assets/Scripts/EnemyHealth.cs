@@ -1,26 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float health = 100f;
+    public float currentHealth = 100f;
+    public float maxHealth = 100f;
     public float damage = 10f;
 
-    void DamageEnemy(float damage)
+    private Rigidbody2D rb;
+    private float strength = 16f;
+    private float delay = .15f;
+
+    private void Start()
     {
-        health -= damage;
-        System.Console.WriteLine($"enemy damaged by {damage}");
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // TODO: make this do something
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Weapon"))
-    //    {
-    //        var damage = collision.gameObject.GetComponent<WeaponDamage>().damage;
-    //        health -= damage;
-    //        Debug.Log($"Enemy was damaged by player by {damage} hp points");
-    //    }
-    //}
+    public void DoDamage(Vector2 direction)
+    {
+        PlayKnockback(direction);
+        currentHealth -= 10;
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void PlayKnockback(Vector2 enemyDirection)
+    {
+        StopAllCoroutines();
+        var direction = ((Vector2)transform.position - enemyDirection).normalized;
+        rb.AddForce(direction * strength, ForceMode2D.Impulse);
+        StartCoroutine(Reset());
+    }
+
+    private IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(delay);
+        rb.velocity = Vector2.zero;
+    }
 }

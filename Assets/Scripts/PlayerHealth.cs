@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
         {
             var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
             health -= damage;
-            Debug.Log($"Player was damaged by enemy by {damage} hp points");
+            //Debug.Log($"Player was damaged by enemy by {damage} hp points");
         }
     }
 }
