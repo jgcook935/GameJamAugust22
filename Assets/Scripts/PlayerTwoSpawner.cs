@@ -13,11 +13,9 @@ public class PlayerTwoSpawner : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(hasPlayerTwoSO.Value);
         if (!hasPlayerTwoSO.Value)
         {
             Instantiate(playerTwoPrefab, transform);
-            Debug.Log("spawned prefab");
         }
     }
 }

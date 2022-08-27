@@ -29,7 +29,7 @@ public class CharacterManager : MonoBehaviour
 
     private List<PlayerMovement> players = new List<PlayerMovement>();
     private LinkedList<Vector3> activePlayerPosition = new LinkedList<Vector3>();
-    private const int maxLinkedListCount = 10;
+    private const int maxLinkedListCount = 30;
 
     void Start()
     {
@@ -58,13 +58,16 @@ public class CharacterManager : MonoBehaviour
         }
 
         var followerIndex = 1;
+        var elementsBehindPlayer = 10;
+        if (activePlayerSO.Value == 2) elementsBehindPlayer = 5;
+
         foreach (var player in players)
         {
-            if (activePlayerPosition.Count > 4 * followerIndex)
+            if (activePlayerPosition.Count > elementsBehindPlayer * followerIndex)
             {
                 if (!player.enabled)
                 {
-                    player.transform.position = activePlayerPosition.ElementAt(4 * followerIndex);
+                    player.transform.position = activePlayerPosition.ElementAt(elementsBehindPlayer * followerIndex);
                     player.animator.SetFloat("Horizontal", activePlayer.movement.x);
                     player.animator.SetFloat("Vertical", activePlayer.movement.y);
                     player.animator.SetFloat("Speed", activePlayer.movement.sqrMagnitude);
