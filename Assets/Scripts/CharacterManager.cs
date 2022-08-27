@@ -15,17 +15,14 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-
     [HideInInspector] public PlayerMovement activePlayer;
 
     [SerializeField] GameObject playerOnePrefab;
     [SerializeField] GameObject playerTwoPrefab;
-
-    [SerializeField] BoolSO hasPlayerTwoSO;
-
-    [SerializeField] FloatSO activePlayerSO;
-
     [SerializeField] GameObject mainCameraPrefab;
+    [SerializeField] BoolSO hasPlayerTwoSO;
+    [SerializeField] IntSO activePlayerSO;
+
 
     private PlayerMovement player1;
     private PlayerMovement player2;
@@ -39,37 +36,14 @@ public class CharacterManager : MonoBehaviour
 
     void Start()
     {
+        // make camera and player1
         cameraController = Instantiate(mainCameraPrefab, transform).GetComponent<CameraController>();
-
         player1 = Instantiate(playerOnePrefab, transform).GetComponent<PlayerMovement>();
         players.Add(player1);
 
-        if (hasPlayerTwoSO.Value)
-        {
-            var newPlayer = Instantiate(playerTwoPrefab, transform);
-            newPlayer.transform.position = player1.transform.position;
-            player2 = newPlayer.GetComponent<PlayerMovement>();
-            players.Add(player2);
-        }
+        if (hasPlayerTwoSO.Value) AddPlayer(Instantiate(playerTwoPrefab, transform).GetComponent<PlayerMovement>());
 
-        if(activePlayerSO.Value == 2)
-        {
-            player2.isActivePlayer = true;
-            player2.enabled = true;
-            activePlayer = player2;
-            player1.enabled = false;
-            activePlayerSO.Value = 2;
-        }
-        else
-        {
-            player1.isActivePlayer = true;
-            player1.enabled = true;
-            activePlayer = player1;
-            if(player2 != null) player2.enabled = false;
-            activePlayerSO.Value = 1;
-        }
-
-        cameraController.target = activePlayer.transform;
+        SetActivePlayerIndex(activePlayerSO.Value);
 
         activePlayerPosition.AddFirst(activePlayer.transform.position);
     }
@@ -98,7 +72,7 @@ public class CharacterManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             RotatePlayers();
         }
@@ -115,21 +89,33 @@ public class CharacterManager : MonoBehaviour
 
     void RotatePlayers()
     {
-        if (activePlayer == player1)
+        if (activePlayer == player1) SetActivePlayerIndex(2);
+        else SetActivePlayerIndex(1);
+
+    }
+
+    private void SetActivePlayerIndex(int index)
+    {
+        switch (index)
         {
-            player2.isActivePlayer = true;
-            player2.enabled = true;
-            activePlayer = player2;
-            player1.enabled = false;
-            activePlayerSO.Value = 2;
-        }
-        else
-        {
-            player1.isActivePlayer = true;
-            player1.enabled = true;
-            activePlayer = player1;
-            player2.enabled = false;
-            activePlayerSO.Value = 1;
+            case 2:
+                {
+                    player2.isActivePlayer = true;
+                    player2.enabled = true;
+                    activePlayer = player2;
+                    player1.enabled = false;
+                    activePlayerSO.Value = 2;
+                    break;
+                }
+            default:
+                {
+                    player1.isActivePlayer = true;
+                    player1.enabled = true;
+                    activePlayer = player1;
+                    activePlayerSO.Value = 1;
+                    if (player2 != null) player2.enabled = false;
+                    break;
+                }
         }
 
         cameraController.target = activePlayer.transform;
