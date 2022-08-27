@@ -3,14 +3,24 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 200f;
-    public SpriteRenderer spriteRenderer;
-    public BoxCollider2D boxCollider;
+    public float currentHealth = 200f;
+    public float maxHealth = 200f;
+    SpriteRenderer spriteRenderer;
+    bool isImmune = false;
+
+    static PlayerHealth _instance;
+    public static PlayerHealth Instance
+    {
+        get
+        {
+            if (_instance == null) _instance = FindObjectOfType<PlayerHealth>();
+            return _instance;
+        }
+    }
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,23 +29,27 @@ public class PlayerHealth : MonoBehaviour
         {
             if (collision.otherCollider.CompareTag("Player"))
             {
-                StartCoroutine(FlashSprite());
+                if (isImmune) return;
+                StartCoroutine(FlashSprite());                
+                Healthbar.Instance.DecreaseHealth();
+                var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
+                currentHealth -= damage;
             }
-            var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
-            health -= damage;
         }
     }
 
     IEnumerator FlashSprite()
     {
-        boxCollider.enabled = false;
+        isImmune = true;
         for (int i = 0; i < 6; i++)
         {
             spriteRenderer.enabled = false;
+            Physics2D.IgnoreLayerCollision(8, 7, true);
             yield return new WaitForSeconds(.25f);
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(.25f);
+            Physics2D.IgnoreLayerCollision(8, 7, false);
         }
-        boxCollider.enabled = true;
+        isImmune = false;
     }
 }
