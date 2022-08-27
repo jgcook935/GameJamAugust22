@@ -7,11 +7,12 @@ public class BoolSO : ScriptableObject
 {
     [SerializeField]
     private bool _value;
+    private bool tempValue;
 
     public bool Value
     {
-        get { return _value; }
-        set { _value = value; }
+        get { return tempValue; }
+        set { tempValue = value; }
     }
 
     private void OnEnable()

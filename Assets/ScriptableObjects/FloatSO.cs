@@ -7,11 +7,12 @@ public class FloatSO : ScriptableObject
 {
     [SerializeField]
     private float _value;
+    private float tempValue;
 
     public float Value
     {
-        get { return _value; }
-        set { _value = value; }
+        get { return tempValue; }
+        set { tempValue = value; }
     }
 
     private void OnEnable()
