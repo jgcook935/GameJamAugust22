@@ -6154,8 +6154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 1402115083}
   player2: {fileID: 0}
-  player3: {fileID: 0}
-  followPlayer2: 0
+  cameraController: {fileID: 525039018}
 --- !u!4 &2064075334
 Transform:
   m_ObjectHideFlags: 0

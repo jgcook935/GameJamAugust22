@@ -9,11 +9,13 @@ public class ActivatePlayerTwo : MonoBehaviour, IClickable
     [SerializeField] GameObject dialogBoxPrefab;
     [SerializeField] PlayerMovement playerMovement;
     GameObject dialogBox;
+    bool beenClicked = false;
 
     public void Click()
     {
-        if (!characterManager.followPlayer2)
+        if (!beenClicked)
         {
+            beenClicked = true;
             dialogBox = Instantiate(dialogBoxPrefab, transform);
             dialogBox.GetComponent<DialogBoxController>().SetText(GetComponent<ISign>().text);
             characterManager.AddPlayer(playerMovement);
