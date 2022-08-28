@@ -18,9 +18,6 @@ public class Healthbar : MonoBehaviour
 
     void Start()
     {
-        background.enabled = false;
-        healthbar.enabled = false;
-
         UpdateHealthBar();
     }
 
@@ -31,6 +28,17 @@ public class Healthbar : MonoBehaviour
             background.enabled = true;
             healthbar.enabled = true;
         }
+
+        if (CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().soHealth.Value == CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth)
+        {
+            Disable();
+        }
         healthbar.fillAmount = CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().soHealth.Value / CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth;
+    }
+
+    void Disable()
+    {
+        background.enabled = false;
+        healthbar.enabled = false;
     }
 }
