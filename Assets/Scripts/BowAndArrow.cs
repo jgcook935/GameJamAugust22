@@ -6,7 +6,7 @@ public class BowAndArrow : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -18,7 +18,7 @@ public class BowAndArrow : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && CharacterManager.Instance.activePlayer.GetComponentInChildren<BowAndArrow>() != null)
         {
-            animator.Play("Fire");
+            // animator.Play("Fire");
         }
     }
 }
