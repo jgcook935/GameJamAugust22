@@ -82,7 +82,7 @@ public class Skeleton : MonoBehaviour, IClickable
 
     IEnumerator DestroyAfter(GameObject someObject)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         Destroy(someObject);
     }
 }
