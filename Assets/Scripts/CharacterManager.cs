@@ -89,6 +89,7 @@ public class CharacterManager : MonoBehaviour
             players.Add(newPlayer);
             player2 = newPlayer;
             player2.transform.position = player1.transform.position;
+            player2.gameObject.layer = 8;
         }
     }
 

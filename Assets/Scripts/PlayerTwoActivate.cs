@@ -22,8 +22,7 @@ public class PlayerTwoActivate : MonoBehaviour, IClickable
             beenClicked = true;
             dialogBox = Instantiate(dialogBoxPrefab, transform);
             dialogBox.GetComponent<DialogBoxController>().SetText(GetComponent<ISign>().text);
-            characterManager.AddPlayer(playerMovement);
-            gameObject.layer = 8; // change player 2 to use the player layer for physics and stuff
+            characterManager.AddPlayer(playerMovement);            
             hasPlayerTwo.Value = true;
         }
     }
