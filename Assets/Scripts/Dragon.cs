@@ -12,7 +12,7 @@ public class Dragon : MonoBehaviour
     Vector2 playerPos;
     Vector2 lookDir;
     float lookAngle;
-    float fireballForce = 1.6f;
+    float fireballForce = .5f;
 
     void Start()
     {
