@@ -6,6 +6,7 @@ public class BowAndArrowDamage : MonoBehaviour
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject arrowPrefab;
+    public Animator animator;
 
     Vector2 mousePos;
     Vector2 lookDir;
@@ -37,7 +38,7 @@ public class BowAndArrowDamage : MonoBehaviour
     {
         if (isShooting) return;
         isShooting = true;
-        //animator.Play("BowAttack"); was thinking there wouldn't be an animation, but can maybe make one if i have time
+        animator.Play("Fire");
         StartCoroutine(ShootArrow());
     }
 
