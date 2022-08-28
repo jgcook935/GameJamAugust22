@@ -10,7 +10,7 @@ public class ArrowDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.gameObject.GetComponent<EnemyHealth>();    
+        var enemy = collision.gameObject.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
             enemy.DoDamage(transform.position);
@@ -20,6 +20,12 @@ public class ArrowDamage : MonoBehaviour
         if (dragon != null)
         {
             dragon.DoDamage();
+        }
+
+        var targetGhoul = collision.gameObject.GetComponent<TargetGhoul>();
+        if (targetGhoul != null)
+        {
+            targetGhoul.DoDamage(transform.position);
         }
         Destroy(gameObject);
     }
