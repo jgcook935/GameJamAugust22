@@ -40,6 +40,7 @@ public class SwiftClif : MonoBehaviour, IClickable
 
     void Start()
     {
+        GetComponent<Rigidbody2D>().isKinematic = true;
         if (hasKeySO.Value) Destroy(key);
     }
 
@@ -69,6 +70,7 @@ public class SwiftClif : MonoBehaviour, IClickable
 
     public void StartRace()
     {
+        GetComponent<Rigidbody2D>().isKinematic = false;
         animator.enabled = true;
         raceStarted = true;
     }
