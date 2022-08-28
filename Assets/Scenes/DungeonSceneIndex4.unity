@@ -5290,6 +5290,7 @@ MonoBehaviour:
   dialogBoxPrefab: {fileID: 4629417679846255871, guid: d1bd7995f375c4d10ac38fb77a06b7ff, type: 3}
   hasWonRaceSO: {fileID: 11400000, guid: eb7b77865286b0942b3fb93be536e97a, type: 2}
   hasKeySO: {fileID: 11400000, guid: 2569c70f7a9845e42b4a85baaf39caf3, type: 2}
+  hasAttemptedRace: {fileID: 11400000, guid: 464e94c50db96436a80d736ef43a9c69, type: 2}
   animator: {fileID: 8348769636847963873}
   key: {fileID: 1537374984}
   rb: {fileID: 8348769636847963870}

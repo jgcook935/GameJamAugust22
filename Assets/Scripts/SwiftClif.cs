@@ -8,6 +8,7 @@ public class SwiftClif : MonoBehaviour, IClickable
     [SerializeField] GameObject dialogBoxPrefab;
     [SerializeField] BoolSO hasWonRaceSO;
     [SerializeField] BoolSO hasKeySO;
+    [SerializeField] BoolSO hasAttemptedRace;
     [SerializeField] Animator animator;
     [SerializeField] GameObject key;
     public Rigidbody2D rb;
@@ -70,6 +71,7 @@ public class SwiftClif : MonoBehaviour, IClickable
 
     public void StartRace()
     {
+        hasAttemptedRace.Value = true;
         GetComponent<Rigidbody2D>().isKinematic = false;
         animator.enabled = true;
         raceStarted = true;

@@ -6,6 +6,9 @@ public class SlimeWave : MonoBehaviour
     public GameObject slimePrefab;
     public GameObject foodPrefab;
 
+    [SerializeField] BoolSO hasAttemptedRace;
+    [SerializeField] BoolSO hasPlayerTwo;
+
     BoxCollider2D boxCollider;
 
     int waveCount = 2;
@@ -63,6 +66,11 @@ public class SlimeWave : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
+        if (hasAttemptedRace.Value == false || hasPlayerTwo.Value == true)
+        {
+            Debug.Log("we've already attempted the race");
+            return;
+        }
         StartWave();
         boxCollider.enabled = false;
         hasInitiated = true;
