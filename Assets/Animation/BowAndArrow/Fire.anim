@@ -45,7 +45,18 @@ AnimationClip:
     path: PivotPoint/BowAndArrowGraphics
     classID: 212
     script: {fileID: 0}
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 2373438272910731062, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
+    - time: 0.1
+      value: {fileID: -4380754558064038755, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
+    - time: 0.26666668
+      value: {fileID: -5373829113268435238, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -60,7 +71,17 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
-    pptrCurveMapping: []
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 2373438272910731062, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
+    - {fileID: -4380754558064038755, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
+    - {fileID: -5373829113268435238, guid: 6a4ece2b68109a94e8be9bc93b89b67e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
