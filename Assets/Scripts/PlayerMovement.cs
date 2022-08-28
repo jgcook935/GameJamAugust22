@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    private bool canMove = true;
+
     [HideInInspector] public bool isActivePlayer = false;
 
     [SerializeField] float sprintMultiplier = 1.5f;
@@ -25,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (DialogBoxController.Instance != null && DialogBoxController.Instance.isOpen) return;
+        if (!canMove) return;
 
         // handle movement
         var totalMoveSpeed = moveSpeed;
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (DialogBoxController.Instance != null && DialogBoxController.Instance.isOpen) return;
+        if (!canMove) return;
 
         // handle input
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -51,5 +53,20 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+    }
+
+    public void StopMovementForDialog()
+    {
+        canMove = false;
+        rb.velocity = Vector2.zero;
+        animator.StopPlayback();
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("Speed", 0);
+    }
+
+    public void ResumeMovement()
+    {
+        canMove = true;
     }
 }
