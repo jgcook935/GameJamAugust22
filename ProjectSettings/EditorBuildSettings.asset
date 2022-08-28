@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Garden.unity
     guid: 92ab41c76f79cd24999a5eb96c5da2ab
+  - enabled: 1
+    path: Assets/Scenes/DungeonSceneIndex4.unity
+    guid: 016186cab3ff899468bd34c1d2da1f8c
   m_configObjects: {}
