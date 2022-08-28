@@ -31,7 +31,11 @@ public class Skeleton : MonoBehaviour, IClickable
 
     void Start()
     {
-        if (!attachedSkull) Instantiate(skullPrefab, transform);
+        if (attachedSkull.Value)
+        {
+            var newSkull = Instantiate(skullPrefab, transform);
+            newSkull.transform.position = newSkull.transform.position + new Vector3(0, 1, 0);
+        }
     }
 
     void Update()
