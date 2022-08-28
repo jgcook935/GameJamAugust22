@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float currentHealth = 200f;
+    public FloatSO soHealth;
+
     public float maxHealth = 200f;
     SpriteRenderer spriteRenderer;
     bool isImmune = false;
@@ -16,6 +17,12 @@ public class PlayerHealth : MonoBehaviour
             if (_instance == null) _instance = FindObjectOfType<PlayerHealth>();
             return _instance;
         }
+    }
+
+    void OnDestroy()
+    {
+        Physics2D.IgnoreLayerCollision(8, 7, false);
+        Physics2D.IgnoreLayerCollision(8, 11, false);
     }
 
     private void Start()
@@ -32,8 +39,8 @@ public class PlayerHealth : MonoBehaviour
                 if (isImmune) return;
                 StartCoroutine(FlashSprite());                
                 var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
-                currentHealth -= damage;
-                Healthbar.Instance.DecreaseHealth();
+                soHealth.Value -= damage;
+                Healthbar.Instance.UpdateHealthBar();
             }
         }
         else if (collision.gameObject.CompareTag("EnemyProjectile"))
@@ -43,8 +50,8 @@ public class PlayerHealth : MonoBehaviour
                 if (isImmune) return;
                 StartCoroutine(FlashSprite());
                 var damage = collision.gameObject.GetComponent<Fireball>().damage;
-                currentHealth -= damage;
-                Healthbar.Instance.DecreaseHealth();
+                soHealth.Value -= damage;
+                Healthbar.Instance.UpdateHealthBar();
             }
         }
     }

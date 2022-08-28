@@ -20,15 +20,17 @@ public class Healthbar : MonoBehaviour
     {
         background.enabled = false;
         healthbar.enabled = false;
+
+        UpdateHealthBar();
     }
 
-    public void DecreaseHealth()
+    public void UpdateHealthBar()
     {
-        if (CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().currentHealth < CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth)
+        if (CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().soHealth.Value < CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth)
         {
             background.enabled = true;
             healthbar.enabled = true;
         }
-        healthbar.fillAmount = CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().currentHealth / CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth;
+        healthbar.fillAmount = CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().soHealth.Value / CharacterManager.Instance.activePlayer.GetComponent<PlayerHealth>().maxHealth;
     }
 }
