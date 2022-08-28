@@ -100,7 +100,7 @@ public class SlimeWaveFinal : MonoBehaviour
         for (int i = 0; i < slimeCounts[currentWave]; i++)
         {
             Instantiate(slimePrefab, spawnPoints[Random.Range(0, 3)].transform);
-            Instantiate(dragonPrefab, spawnPoints[Random.Range(4, 8)].transform);
+            Instantiate(dragonPrefab, spawnPoints[Random.Range(4, 11)].transform);
         }
         slimesAlive = slimeCounts[currentWave];
         dragonsAlive = dragonCounts[currentWave];
