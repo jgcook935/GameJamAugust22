@@ -36,7 +36,7 @@ public class Skeleton : MonoBehaviour, IClickable
 
     void Update()
     {
-        if (!turnedSwordOff && !hasSword.Value)
+        if (!turnedSwordOff && !hasSword.Value && !attachedSkull)
         {
             var player = GameObject.FindWithTag("Player");
             if (player != null)

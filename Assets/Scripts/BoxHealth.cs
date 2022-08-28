@@ -4,6 +4,12 @@ using UnityEngine;
 public class BoxHealth : MonoBehaviour
 {
     private float currentHealth = 50;
+    [SerializeField] BoolSO destroyedBoxes;
+
+    void Start()
+    {
+        if (destroyedBoxes.Value) Destroy(this.gameObject);
+    }
 
     public void DoDamage(Vector2 direction)
     {
@@ -12,6 +18,7 @@ public class BoxHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            destroyedBoxes.Value = true;
             Destroy(this.gameObject);
         }
     }

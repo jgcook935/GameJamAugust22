@@ -51,6 +51,11 @@ public class ChangeScenesManager : MonoBehaviour
                     sceneLocationSO_4.Value = location;
                     break;
                 }
+            case 5:
+                {
+                    sceneLocationSO_5.Value = location;
+                    break;
+                }
             default:
                 {
                     Debug.Log("Invalid scene index");
