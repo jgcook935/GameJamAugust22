@@ -10,7 +10,7 @@ public class ChangeScenesManager : MonoBehaviour
     [SerializeField] Vector2SO sceneLocationSO_2;
     [SerializeField] Vector2SO sceneLocationSO_3;
     [SerializeField] Vector2SO sceneLocationSO_4;
-
+    [SerializeField] Vector2SO sceneLocationSO_5;
 
     static ChangeScenesManager _instance;
     public static ChangeScenesManager Instance
@@ -83,6 +83,10 @@ public class ChangeScenesManager : MonoBehaviour
             case 4:
                 {
                     return sceneLocationSO_4.Value;
+                }
+            case 5:
+                {
+                    return sceneLocationSO_5.Value;
                 }
             default:
                 {

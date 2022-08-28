@@ -6,19 +6,19 @@ public class TitleCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartGame()
     {
         Debug.Log("Start button pressed. Starting.");
-        SceneManager.LoadScene("DungeonScene1");
+        SceneManager.LoadScene("IntroIndex5");
     }
 
     public void QuitGame()

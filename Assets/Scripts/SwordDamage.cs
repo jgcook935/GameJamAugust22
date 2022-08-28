@@ -9,5 +9,10 @@ public class SwordDamage : MonoBehaviour
         {
             enemy.DoDamage(transform.position);
         }
+        var box = collision.gameObject.GetComponent<BoxHealth>();
+        if (box != null)
+        {
+            box.DoDamage(transform.position);
+        }
     }
 }

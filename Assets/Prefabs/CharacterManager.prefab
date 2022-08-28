@@ -69,3 +69,4 @@ MonoBehaviour:
   sceneLocationSO_2: {fileID: 11400000, guid: 40d26459d44d829449c92e2cf4e7341e, type: 2}
   sceneLocationSO_3: {fileID: 11400000, guid: a38ffedb2670f484388599521279d297, type: 2}
   sceneLocationSO_4: {fileID: 11400000, guid: 8e319af16af20fd45bce911a4523f63f, type: 2}
+  sceneLocationSO_5: {fileID: 11400000, guid: c7dbe8ab1567a5148a8ecc45980af116, type: 2}
