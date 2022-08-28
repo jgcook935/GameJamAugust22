@@ -56,6 +56,7 @@ public class SlimeWave : MonoBehaviour
                 hasInitiated = false;
                 hasFinished = true;
                 Instantiate(foodPrefab, spawnPoints[0].transform);
+                PlayerTwoSpawner.Instance.SpawnPlayerTwo();
             }
         }
     }
