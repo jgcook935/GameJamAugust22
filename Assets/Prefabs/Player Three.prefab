@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5004140725871079608}
   - component: {fileID: 1061575337}
   m_Layer: 10
-  m_Name: Player Two
+  m_Name: Player Three
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 7388399842426930641, guid: df5ce6871de5cc84ca88c30ade1024fe, type: 3}
-  m_Color: {r: 0.990566, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.1812303, b: 0.99215686, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0}
-  moveSpeed: 7
+  moveSpeed: 5
   rb: {fileID: 1318500144012136680}
   animator: {fileID: 1318500144012136684}
   isActivePlayer: 0
-  sprintMultiplier: 1.5
+  sprintMultiplier: 1
 --- !u!50 &1318500144012136680
 Rigidbody2D:
   serializedVersion: 4
@@ -213,4 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBoxPrefab: {fileID: 4629417679846255871, guid: d1bd7995f375c4d10ac38fb77a06b7ff, type: 3}
   playerMovement: {fileID: 1318500144012136683}
-  hasPlayerSO: {fileID: 11400000, guid: e010ddc7c3e59424dbf6add68c2afb41, type: 2}
+  hasPlayerSO: {fileID: 11400000, guid: 76967e2e2135a824dbf0fe94eba5c7da, type: 2}

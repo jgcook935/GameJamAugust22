@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class PlayerTwoActivate : MonoBehaviour, IClickable
+public class NewPlayerActivate : MonoBehaviour, IClickable
 {
     CharacterManager characterManager;
     [SerializeField] GameObject dialogBoxPrefab;
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] BoolSO hasPlayerTwo;
+    [SerializeField] BoolSO hasPlayerSO;
     GameObject dialogBox;
     bool beenClicked = false;
 
     void Start()
     {
         characterManager = CharacterManager.Instance;
-        if (hasPlayerTwo.Value) beenClicked = true;
+        if (hasPlayerSO.Value) beenClicked = true;
     }
 
     public void Click()
@@ -22,8 +22,8 @@ public class PlayerTwoActivate : MonoBehaviour, IClickable
             beenClicked = true;
             dialogBox = Instantiate(dialogBoxPrefab, transform);
             dialogBox.GetComponent<DialogBoxController>().SetText(GetComponent<ISign>().text);
-            characterManager.AddPlayer(playerMovement);            
-            hasPlayerTwo.Value = true;
+            characterManager.AddPlayer(playerMovement);
+            hasPlayerSO.Value = true;
         }
     }
 }

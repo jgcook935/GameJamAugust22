@@ -67,33 +67,27 @@ public class ChangeScenesManager : MonoBehaviour
                 {
                     Debug.Log("This should be the title sceen");
                     return Vector2.zero;
-                    break;
                 }
             case 1:
                 {
                     return sceneLocationSO_1.Value;
-                    break;
                 }
             case 2:
                 {
                     return sceneLocationSO_2.Value;
-                    break;
                 }
             case 3:
                 {
                     return sceneLocationSO_3.Value;
-                    break;
                 }
             case 4:
                 {
                     return sceneLocationSO_4.Value;
-                    break;
                 }
             default:
                 {
                     Debug.LogError("Invalid scene index");
                     return Vector2.zero;
-                    break;
                 }
         }
     }

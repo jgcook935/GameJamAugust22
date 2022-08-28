@@ -19,12 +19,16 @@ public class CharacterManager : MonoBehaviour
 
     [SerializeField] GameObject playerOnePrefab;
     [SerializeField] GameObject playerTwoPrefab;
+    [SerializeField] GameObject playerThreePrefab;
     [SerializeField] GameObject mainCameraPrefab;
     [SerializeField] BoolSO hasPlayerTwoSO;
+    [SerializeField] BoolSO hasPlayerThreeSO;
+
     public IntSO activePlayerSO;
 
     private PlayerMovement player1;
     private PlayerMovement player2;
+    private PlayerMovement player3;
     private CameraController cameraController;
 
     private List<PlayerMovement> players = new List<PlayerMovement>();
@@ -42,6 +46,7 @@ public class CharacterManager : MonoBehaviour
         if (sceneLocation != Vector2.zero) player1.transform.position = sceneLocation;
 
         if (hasPlayerTwoSO.Value) AddPlayer(Instantiate(playerTwoPrefab, transform).GetComponent<PlayerMovement>());
+        if (hasPlayerThreeSO.Value) AddPlayer(Instantiate(playerThreePrefab, transform).GetComponent<PlayerMovement>());
 
         SetActivePlayerIndex(activePlayerSO.Value);
 
@@ -63,16 +68,20 @@ public class CharacterManager : MonoBehaviour
 
         foreach (var player in players)
         {
-            if (activePlayerPosition.Count > elementsBehindPlayer * followerIndex)
+            if (player != activePlayer)
             {
-                if (!player.enabled)
+                if (activePlayerPosition.Count > elementsBehindPlayer * followerIndex)
                 {
-                    player.transform.position = activePlayerPosition.ElementAt(elementsBehindPlayer * followerIndex);
-                    player.animator.SetFloat("Horizontal", activePlayer.movement.x);
-                    player.animator.SetFloat("Vertical", activePlayer.movement.y);
-                    player.animator.SetFloat("Speed", activePlayer.movement.sqrMagnitude);
-                    player.animator.SetBool("IsPlayerTwo", false);
+                    if (!player.enabled)
+                    {
+                        player.transform.position = activePlayerPosition.ElementAt(elementsBehindPlayer * followerIndex);
+                        player.animator.SetFloat("Horizontal", activePlayer.movement.x);
+                        player.animator.SetFloat("Vertical", activePlayer.movement.y);
+                        player.animator.SetFloat("Speed", activePlayer.movement.sqrMagnitude);
+                        player.animator.SetBool("IsPlayerTwo", false);
+                    }
                 }
+                followerIndex++;
             }
         }
 
@@ -91,13 +100,22 @@ public class CharacterManager : MonoBehaviour
             player2.transform.position = player1.transform.position;
             player2.gameObject.layer = 8;
         }
+        else if (!player3)
+        {
+            players.Add(newPlayer);
+            player3 = newPlayer;
+            player3.transform.position = player1.transform.position;
+            player3.gameObject.layer = 8;
+        }
+        else Debug.LogError("No New Player Slots");
     }
 
     void RotatePlayers()
     {
-        if (activePlayer == player1) SetActivePlayerIndex(2);
-        else SetActivePlayerIndex(1);
-
+        if (activePlayer == player1 && player2) SetActivePlayerIndex(2);
+        else if (player2 && activePlayer == player2 && player3) SetActivePlayerIndex(3);
+        else if (player2 && activePlayer == player2 && !player3) SetActivePlayerIndex(1);
+        else if (player3 && activePlayer == player3) SetActivePlayerIndex(1);
     }
 
     private void SetActivePlayerIndex(int index)
@@ -110,7 +128,18 @@ public class CharacterManager : MonoBehaviour
                     player2.enabled = true;
                     activePlayer = player2;
                     player1.enabled = false;
+                    if (player3 != null) player3.enabled = false;
                     activePlayerSO.Value = 2;
+                    break;
+                }
+            case 3:
+                {
+                    player3.isActivePlayer = true;
+                    player3.enabled = true;
+                    activePlayer = player3;
+                    player1.enabled = false;
+                    player2.enabled = false;
+                    activePlayerSO.Value = 3;
                     break;
                 }
             default:
@@ -120,6 +149,7 @@ public class CharacterManager : MonoBehaviour
                     activePlayer = player1;
                     activePlayerSO.Value = 1;
                     if (player2 != null) player2.enabled = false;
+                    if (player3 != null) player3.enabled = false;
                     break;
                 }
         }
