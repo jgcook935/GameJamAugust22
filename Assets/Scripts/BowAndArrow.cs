@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class BowAndArrow : MonoBehaviour
 {
     Animator animator;
 
-    void Start()
+    void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -16,9 +16,9 @@ public class Sword : MonoBehaviour
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10 * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0) && CharacterManager.Instance.activePlayer.GetComponentInChildren<Sword>() != null)
+        if (Input.GetMouseButtonDown(0) && CharacterManager.Instance.activePlayer.GetComponentInChildren<BowAndArrow>() != null)
         {
-            animator.Play("Swingtinith");
+            animator.Play("Fire");
         }
     }
 }

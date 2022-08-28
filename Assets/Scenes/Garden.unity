@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555800496558460486, guid: 97ab52fc1d4754849852db6adc3eb67b, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1555800496558460486, guid: 97ab52fc1d4754849852db6adc3eb67b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_LocalPosition.x
@@ -287,9 +287,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541383, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_Name
       value: Blue Slime (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7129f377021092409ca5c0993b8e716, type: 3}
@@ -338,7 +346,7 @@ Transform:
   - {fileID: 1820763601}
   - {fileID: 1810684072}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755103012
 GameObject:
@@ -352,7 +360,7 @@ GameObject:
   - component: {fileID: 755103016}
   - component: {fileID: 755103015}
   - component: {fileID: 755103014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InvisibleWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1119,9 +1127,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541383, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_Name
       value: Blue Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7129f377021092409ca5c0993b8e716, type: 3}
@@ -1134,7 +1150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4423764759652028276, guid: 2ad5e91db14edac4c8b2c28f094b06a8, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4423764759652028276, guid: 2ad5e91db14edac4c8b2c28f094b06a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,7 +1278,7 @@ Transform:
   m_LocalScale: {x: 1000, y: 1000, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1753212103
 PrefabInstance:
@@ -1281,7 +1297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4856474899891247561, guid: 3b87b86bd3789984d9579f40afc6e770, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4856474899891247561, guid: 3b87b86bd3789984d9579f40afc6e770, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2311,6 +2327,92 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1832756613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832756615}
+  - component: {fileID: 1832756614}
+  m_Layer: 0
+  m_Name: AStar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1832756614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832756613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACAn+uKyVpPbAIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty2jAU/RVG68KYR03orjWEdEHChHSy8UZY11iDLHn0CJAM/94r2cYuZYN8zn2ce3TtL8KlqSCzSq81ZxvFgPwYEH8m3wYd+QRnelByxz+hjXnnzBY+iIaYV2q5Qnzs04wqwWqe/ZQH4YMjBJ3kudLlih0gUcYahHMqDCCllfXZEqGvATnj33DhUy54msz96RNPi2hwxWMG0oLuhcajabzA32zcpAwno0XcJNU5TmaClhUwP0CXOvneNpmGMImjNRG+VqaE4KbRReylCnMntDIOp8IAxinOGcSMR1MECuCHwvqC/fSXPDdgGxs0vSy5RsPquuSXql0sqTnWyj6ocL5TPAui6pqb/+jhONC5VuVT23Yc+Ra24NnxlV4yamzP5T687CkP/pyoONK9gPcC5LNaa+UkQ9Jq51Odgcmye7xNlhSQHTu8lnoHuqozvL3U9kr9DNcw/DkRvNx7ajSrgZ1QwfCwCaDxan6j4LAnpimBqFfxx8AbPfQXqiEeuTYWqWZK6eXtldM+lKyCZ34aZxOlJQS4EV2BpMJetljG3t/gHddre8c8Uv/qNM0brn0j7lIC3MVH0R21VafbZZlCnTZgihdnBZfQifbEM/qUKCnrBet70qbtnM5p1ks7OM7+XS0y3kMcRfkE9mz+MAc6jPP9wzyb5vOHaBbni5iE3eMS56RiWwtt7MFbk11xiXvWflEGa02rsOxM09Oaf5aqZzmXudplGkC+1BVuwkFjE3wt2YpxNGgH1nIZ7pt8pUSo7AgsvRVKw6Srs9U07aqkpOIfynokJUn4hKTEw7dd3mr44HDyzdtiV3L9C1BLAwQUAAAICAAAgJ/riuzVV20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kmFSqpmBQZpRalKKuYV5aqKuWVqShXmycZq5hYGJWZqlmVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/rislaT2wCAAAhBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/riuzVV20AAAB4AAAACQAkAAAAAAAAAAAAAAC5AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHEDAAAAAA==
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 0
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1832756615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832756613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1876408057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2336,7 +2438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541377, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2378,9 +2480,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541383, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
       propertyPath: m_Name
       value: Blue Slime (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172376131395541386, guid: c7129f377021092409ca5c0993b8e716, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7129f377021092409ca5c0993b8e716, type: 3}
@@ -2448,5 +2558,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
