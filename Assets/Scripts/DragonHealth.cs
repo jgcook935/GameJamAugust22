@@ -19,6 +19,7 @@ public class DragonHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            if (SlimeWaveFinal.Instance) SlimeWaveFinal.Instance.DecrementDragonCount();
         }
     }
 }

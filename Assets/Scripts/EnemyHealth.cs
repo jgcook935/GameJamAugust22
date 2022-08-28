@@ -31,7 +31,8 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            SlimeWave.Instance.DecrementSlimeCount();
+            if (SlimeWave.Instance) SlimeWave.Instance.DecrementSlimeCount();
+            if (SlimeWaveFinal.Instance) SlimeWaveFinal.Instance.DecrementSlimeCount();
         }
     }
 
