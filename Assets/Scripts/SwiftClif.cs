@@ -11,6 +11,9 @@ public class SwiftClif : MonoBehaviour, IClickable
     [SerializeField] BoolSO hasAttemptedRace;
     [SerializeField] Animator animator;
     [SerializeField] GameObject key;
+    public AudioSource source;
+    public AudioClip start;
+    public AudioClip clap;
     public Rigidbody2D rb;
     GameObject dialogBox;
     private bool raceStarted = false;
@@ -75,6 +78,7 @@ public class SwiftClif : MonoBehaviour, IClickable
         GetComponent<Rigidbody2D>().isKinematic = false;
         animator.enabled = true;
         raceStarted = true;
+        source.PlayOneShot(start);
     }
 
     public void FinishRace(Collision2D finishCollision)
@@ -86,6 +90,7 @@ public class SwiftClif : MonoBehaviour, IClickable
         dialogBox = Instantiate(dialogBoxPrefab, transform);
         dialogBox.GetComponent<DialogBoxController>().SetText(playerWon ? wonText : lostText);
         dialogBox.GetComponentInChildren<DialogueBoxAnimEvents>().OnDestroyingDialogueBox += FinishedRaceDialogue;
+        source.PlayOneShot(clap);
     }
 
     private void FinishedRaceDialogue()

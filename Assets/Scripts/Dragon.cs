@@ -6,6 +6,9 @@ public class Dragon : MonoBehaviour
     [SerializeField] GameObject fireballPrefab;
     [SerializeField] Transform firePoint;
 
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip fireballClip;
+
     Vector2 playerPos;
     Vector2 lookDir;
     float lookAngle;
@@ -44,6 +47,7 @@ public class Dragon : MonoBehaviour
         var fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.Euler(0f, 0f, lookAngle));
         var rb = fireball.GetComponent<Rigidbody2D>();
         rb.AddForce(lookDir * fireballForce, ForceMode2D.Impulse);
+        source.PlayOneShot(fireballClip);
         yield return new WaitForSeconds(0.3f);
         // instantiate the prefab and launch it toward the player
     }

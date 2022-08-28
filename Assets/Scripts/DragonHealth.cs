@@ -5,6 +5,9 @@ public class DragonHealth : MonoBehaviour
     private float currentHealth;
     public float damage;
 
+    public AudioSource source;
+    public AudioClip death;
+
     private void Awake()
     {
         var random = Random.Range(2, 7);
@@ -19,6 +22,7 @@ public class DragonHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            source.PlayOneShot(death);
             if (SlimeWaveFinal.Instance) SlimeWaveFinal.Instance.DecrementDragonCount();
         }
     }

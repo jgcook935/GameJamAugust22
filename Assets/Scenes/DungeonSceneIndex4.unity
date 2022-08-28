@@ -5230,6 +5230,7 @@ GameObject:
   - component: {fileID: 8348769636847963869}
   - component: {fileID: 8348769636847963870}
   - component: {fileID: 8348769636847963871}
+  - component: {fileID: 8348769636847963868}
   m_Layer: 0
   m_Name: Swift Clif
   m_TagString: Player
@@ -5237,6 +5238,102 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &8348769636847963868
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348769636847963867}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &8348769636847963869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5249,11 +5346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5da7c3216594fe4183fa2cbab3689a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <text>k__BackingField:
-  - They call me Swift Clif
-  - Ain't nobody faster than me
-  - Care for a race? Win and I'll give you my shiny key
-  - Ready? GO!!!
 --- !u!50 &8348769636847963870
 Rigidbody2D:
   serializedVersion: 4
@@ -5293,6 +5385,9 @@ MonoBehaviour:
   hasAttemptedRace: {fileID: 11400000, guid: 464e94c50db96436a80d736ef43a9c69, type: 2}
   animator: {fileID: 8348769636847963873}
   key: {fileID: 1537374984}
+  source: {fileID: 8348769636847963868}
+  start: {fileID: 8300000, guid: 72ca2e43ca0c242069f6b27bdec8fb9b, type: 3}
+  clap: {fileID: 8300000, guid: 7cf1ef67a3bc94c2ea56af296a0eebc2, type: 3}
   rb: {fileID: 8348769636847963870}
 --- !u!4 &8348769636847963872
 Transform:
