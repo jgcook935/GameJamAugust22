@@ -294,7 +294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4675835559418346528, guid: 86156a0893c5643b9afedd6c121c3e84, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5069774849052475665, guid: 86156a0893c5643b9afedd6c121c3e84, type: 3}
       propertyPath: animator
@@ -347,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 7239004846867643983, guid: 86156a0893c5643b9afedd6c121c3e84, type: 3}
       propertyPath: m_Name
       value: BowAndArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633418534664910024, guid: 86156a0893c5643b9afedd6c121c3e84, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86156a0893c5643b9afedd6c121c3e84, type: 3}
