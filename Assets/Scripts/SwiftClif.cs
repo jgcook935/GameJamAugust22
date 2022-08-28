@@ -27,9 +27,9 @@ public class SwiftClif : MonoBehaviour, IClickable
     public void Click()
     {
         if (dialogBox != null) return;
-        StartRace();
         dialogBox = Instantiate(dialogBoxPrefab, transform);
         dialogBox.GetComponent<DialogBoxController>().SetText(GetComponent<ISign>().text);
+        dialogBox.GetComponentInChildren<DialogueBoxAnimEvents>().OnDestroyingDialogueBox += StartRace;
     }
 
     public void StartRace()
