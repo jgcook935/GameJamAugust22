@@ -13,7 +13,6 @@ public class TargetGhoul : MonoBehaviour
 
     public void DoDamage(Vector2 direction)
     {
-        Debug.Log("Ghoul got hit");
         destroyedGhoul.Value = true;
         Destroy(this.gameObject);
     }
