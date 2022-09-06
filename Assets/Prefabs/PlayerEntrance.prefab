@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4856474899891247560}
   - component: {fileID: 4856474899891247563}
   m_Layer: 0
-  m_Name: ExitToSecondRoom
+  m_Name: PlayerEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
