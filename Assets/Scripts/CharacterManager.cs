@@ -155,4 +155,16 @@ public class CharacterManager : MonoBehaviour
 
         cameraController.target = activePlayer.transform;
     }
+
+    public void SetControlsEnabled(bool enabled)
+    {
+        foreach (var player in players)
+        {
+            player.SetMovementEnabled(enabled);
+            foreach (var ability in player.GetComponentsInChildren<Ability>())
+            {
+                ability.Enabled = enabled;
+            }
+        }
+    }
 }

@@ -23,7 +23,7 @@ public class DialogBoxController : MonoBehaviour, IClickable
     void Awake()
     {
         isOpen = true;
-        CharacterManager.Instance.activePlayer.StopMovementForDialog();
+        CharacterManager.Instance.SetControlsEnabled(false);
     }
 
     void Update()
@@ -47,18 +47,18 @@ public class DialogBoxController : MonoBehaviour, IClickable
         if (isOpen && Input.GetKeyDown(KeyCode.Escape))
         {
             animator.SetTrigger("DialogueClosed");
-            CharacterManager.Instance.activePlayer.ResumeMovement();
+            CharacterManager.Instance.SetControlsEnabled(true);
         }
-        else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1)) && textIndex < text.Count)
+        else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && textIndex < text.Count)
         {
             gameObject.GetComponentInChildren<Text>().text = text[textIndex];
             textIndex++;
             // play a continue sound
         }
-        else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1)) && textIndex == text.Count)
+        else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && textIndex == text.Count)
         {
             animator.SetTrigger("DialogueClosed");
-            CharacterManager.Instance.activePlayer.ResumeMovement();
+            CharacterManager.Instance.SetControlsEnabled(true);
             // maybe play a dismiss sound
         }
     }

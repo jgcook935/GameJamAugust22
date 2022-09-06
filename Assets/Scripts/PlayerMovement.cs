@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsPlayerTwo", true);
             totalMoveSpeed *= sprintMultiplier;
-        } 
+        }
         else animator.SetBool("IsPlayerTwo", false);
 
         var moveDirection = movement.normalized;
@@ -55,18 +55,20 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
-    public void StopMovementForDialog()
+    public void SetMovementEnabled(bool enabled)
     {
-        canMove = false;
-        rb.velocity = Vector2.zero;
-        animator.StopPlayback();
-        animator.SetFloat("Horizontal", 0);
-        animator.SetFloat("Vertical", 0);
-        animator.SetFloat("Speed", 0);
-    }
-
-    public void ResumeMovement()
-    {
-        canMove = true;
+        if (enabled)
+        {
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
+            rb.velocity = Vector2.zero;
+            animator.StopPlayback();
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 0);
+        }
     }
 }

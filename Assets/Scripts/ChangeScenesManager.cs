@@ -95,7 +95,7 @@ public class ChangeScenesManager : MonoBehaviour
                 }
             default:
                 {
-                    Debug.LogError("Invalid scene index");
+                    Debug.Log("ChangeScenesManager current scene not setup for scene transitions");
                     return Vector2.zero;
                 }
         }

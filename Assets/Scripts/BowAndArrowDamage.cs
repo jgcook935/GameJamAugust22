@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BowAndArrowDamage : MonoBehaviour
+public class BowAndArrowDamage : Ability
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject arrowPrefab;
@@ -36,7 +36,7 @@ public class BowAndArrowDamage : MonoBehaviour
 
     void Shoot()
     {
-        if (isShooting) return;
+        if (isShooting || !Enabled) return;
         isShooting = true;
         animator.Play("Fire");
         StartCoroutine(ShootArrow());
