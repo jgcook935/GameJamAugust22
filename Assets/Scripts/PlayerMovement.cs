@@ -8,8 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public Rigidbody2D rb;
     public Animator animator;
-
-    private bool canMove = true;
+    private bool _enabled = true;
+    public bool Enabled
+    {
+        get { return _enabled; }
+        set { _enabled = value; }
+    }
 
     [HideInInspector] public bool isActivePlayer = false;
 
@@ -27,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canMove) return;
+        if (!Enabled) return;
 
         // handle movement
         var totalMoveSpeed = moveSpeed;
@@ -44,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!canMove) return;
+        if (!Enabled) return;
 
         // handle input
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -57,13 +61,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMovementEnabled(bool enabled)
     {
-        if (enabled)
+        Enabled = enabled;
+        if (!enabled)
         {
-            canMove = true;
-        }
-        else
-        {
-            canMove = false;
             rb.velocity = Vector2.zero;
             animator.StopPlayback();
             animator.SetFloat("Horizontal", 0);
