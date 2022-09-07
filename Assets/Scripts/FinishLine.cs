@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FInishLine : MonoBehaviour
+public class FinishLine : MonoBehaviour
 {
     private bool raceOver = false;
     [SerializeField] SwiftClif swiftClif;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (!raceOver)
         {
-            if (collision.gameObject.tag != "Player") return;
-            swiftClif.FinishRace(collision);
+            if (!swiftClif.raceStarted || collider.gameObject.tag != "Player") return;
+            swiftClif.FinishRace(collider);
             raceOver = true;
         }
     }

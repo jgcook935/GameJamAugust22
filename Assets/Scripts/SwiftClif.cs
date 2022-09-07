@@ -16,7 +16,7 @@ public class SwiftClif : MonoBehaviour, IClickable
     public AudioClip clap;
     public Rigidbody2D rb;
     GameObject dialogBox;
-    private bool raceStarted = false;
+    public bool raceStarted = false;
     private float moveSpeed = 9.5f;
 
     public List<string> text { get; set; } = new List<string>
@@ -74,6 +74,7 @@ public class SwiftClif : MonoBehaviour, IClickable
 
     public void StartRace()
     {
+        gameObject.layer = LayerMask.NameToLayer("NPC that player can walk through");
         hasAttemptedRace.Value = true;
         GetComponent<Rigidbody2D>().isKinematic = false;
         animator.enabled = true;
@@ -81,7 +82,7 @@ public class SwiftClif : MonoBehaviour, IClickable
         source.PlayOneShot(start);
     }
 
-    public void FinishRace(Collision2D finishCollision)
+    public void FinishRace(Collider2D finishCollision)
     {
         Debug.Log($"Finish Collision {finishCollision.gameObject.name}");
         var playerWon = finishCollision.gameObject.name != "Swift Clif";
