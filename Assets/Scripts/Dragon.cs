@@ -46,7 +46,7 @@ public class Dragon : MonoBehaviour
         yield return new WaitForSeconds(random);
         var fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.Euler(0f, 0f, lookAngle));
         var rb = fireball.GetComponent<Rigidbody2D>();
-        rb.AddForce(lookDir * fireballForce, ForceMode2D.Impulse);
+        rb.velocity = lookDir * fireballForce;
         source.PlayOneShot(fireballClip);
         yield return new WaitForSeconds(0.3f);
         // instantiate the prefab and launch it toward the player

@@ -48,7 +48,7 @@ public class BowAndArrowDamage : Ability
         yield return new WaitForSeconds(0.3f);
         GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.Euler(0f, 0f, lookAngle));
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        rb.AddForce(lookDir * arrowForce, ForceMode2D.Impulse);
+        rb.velocity = lookDir * arrowForce;
         yield return new WaitForSeconds(0.3f);
         isShooting = false;
     }
