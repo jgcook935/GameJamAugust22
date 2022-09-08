@@ -2500,7 +2500,7 @@ MonoBehaviour:
   dialogBoxPrefab: {fileID: 4629417679846255871, guid: d1bd7995f375c4d10ac38fb77a06b7ff, type: 3}
   openDoor: {fileID: 2174489400438326913, guid: 3dff215cdd4ae564db1ef4b636a6a89a, type: 3}
   playerThreePrefab: {fileID: 1318500144012136662, guid: bf46e9fc81561824e9ae2b40bb3f26b3, type: 3}
-  keyPrefab: {fileID: 7064298357303897664, guid: 13e68665e5daf4f47a0a327b4767736d, type: 3}
+  keyPrefab: {fileID: 7064298357303897664, guid: 3368ad62d1ed6124da57ff11bf5609ca, type: 3}
   hasKeySO: {fileID: 11400000, guid: 2569c70f7a9845e42b4a85baaf39caf3, type: 2}
   hasPlayerThreeSO: {fileID: 11400000, guid: 76967e2e2135a824dbf0fe94eba5c7da, type: 2}
 --- !u!212 &1793681762
