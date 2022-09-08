@@ -11,6 +11,7 @@ public class Cell : MonoBehaviour, IClickable
     [SerializeField] BoolSO hasKeySO;
     [SerializeField] BoolSO hasPlayerThreeSO;
     GameObject dialogBox;
+    private bool openedDoor = false;
 
 
     public List<string> text { get; set; } = new List<string>
@@ -20,11 +21,11 @@ public class Cell : MonoBehaviour, IClickable
 
     public void Click()
     {
-        if (hasKeySO.Value)
+        if (hasKeySO.Value && !openedDoor)
         {
             OpenDoor();
         }
-        else if (!hasPlayerThreeSO.Value)
+        else if (!hasPlayerThreeSO.Value && !openedDoor)
         {
             if (dialogBox != null) return;
             dialogBox = Instantiate(dialogBoxPrefab, transform);
@@ -34,6 +35,7 @@ public class Cell : MonoBehaviour, IClickable
 
     private void OpenDoor()
     {
+        openedDoor = true;
         var activePlayerTransform = CharacterManager.Instance.activePlayer.gameObject.transform;
         var key = Instantiate(keyPrefab, activePlayerTransform);
         key.transform.position = activePlayerTransform.position + new Vector3(0f, 1f, 0f);
