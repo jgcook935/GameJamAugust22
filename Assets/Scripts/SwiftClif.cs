@@ -11,7 +11,7 @@ public class SwiftClif : MonoBehaviour, IClickable
     [SerializeField] BoolSO hasAttemptedRace;
     [SerializeField] Animator animator;
     [SerializeField] GameObject key;
-    public AudioSource source;
+    AudioSource source => GetComponent<AudioSource>();
     public AudioClip start;
     public AudioClip clap;
     public Rigidbody2D rb;

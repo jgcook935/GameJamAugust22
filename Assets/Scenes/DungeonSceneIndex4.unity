@@ -5227,7 +5227,6 @@ GameObject:
   - component: {fileID: 8348769636847963879}
   - component: {fileID: 8348769636847963876}
   - component: {fileID: 8348769636847963873}
-  - component: {fileID: 8348769636847963869}
   - component: {fileID: 8348769636847963870}
   - component: {fileID: 8348769636847963871}
   - component: {fileID: 8348769636847963868}
@@ -5250,7 +5249,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5334,18 +5333,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8348769636847963869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8348769636847963867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5da7c3216594fe4183fa2cbab3689a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &8348769636847963870
 Rigidbody2D:
   serializedVersion: 4

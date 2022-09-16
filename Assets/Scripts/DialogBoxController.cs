@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class DialogBoxController : MonoBehaviour, IClickable
 {
+    [SerializeField] AudioClip[] clips; // in the future it could be cool to grab these from a folder or something
+    AudioSource source => GetComponent<AudioSource>();
     public bool isOpen = false;
     int textIndex = 0;
     List<string> text = new List<string>();
@@ -26,6 +28,11 @@ public class DialogBoxController : MonoBehaviour, IClickable
         CharacterManager.Instance.SetControlsEnabled(false);
     }
 
+    void Start()
+    {
+        PlayRandomPaperSound();
+    }
+
     void Update()
     {
         NextTextOrDestroy();
@@ -46,22 +53,26 @@ public class DialogBoxController : MonoBehaviour, IClickable
         // allowing escape to destroy anyway for testing
         if (isOpen && Input.GetKeyDown(KeyCode.Escape))
         {
+            PlayRandomPaperSound();
             animator.SetTrigger("DialogueClosed");
             CharacterManager.Instance.SetControlsEnabled(true);
         }
         else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && textIndex < text.Count)
         {
+            PlayRandomPaperSound();
             gameObject.GetComponentInChildren<Text>().text = text[textIndex];
             textIndex++;
             // play a continue sound
         }
         else if (isOpen && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && textIndex == text.Count)
         {
+            PlayRandomPaperSound();
             animator.SetTrigger("DialogueClosed");
             CharacterManager.Instance.SetControlsEnabled(true);
-            // maybe play a dismiss sound
         }
     }
+
+    void PlayRandomPaperSound() => source.PlayOneShot(clips[Random.Range(0, 7)]);
 
     public void SetText(List<string> text)
     {
