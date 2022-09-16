@@ -9,6 +9,9 @@ public class PlayerHealth : MonoBehaviour
     SpriteRenderer spriteRenderer;
     bool isImmune = false;
 
+    AudioSource source => GetComponent<AudioSource>();
+    [SerializeField] AudioClip[] clips;
+
     static PlayerHealth _instance;
     public static PlayerHealth Instance
     {
@@ -37,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
             if (collision.otherCollider.CompareTag("Player"))
             {
                 if (isImmune) return;
+                PlayDamageSound();
                 StartCoroutine(FlashSprite());                
                 var damage = collision.gameObject.GetComponent<EnemyHealth>().damage;
                 soHealth.Value -= damage;
@@ -48,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
             if (collision.otherCollider.CompareTag("Player"))
             {
                 if (isImmune) return;
+                PlayDamageSound();
                 StartCoroutine(FlashSprite());
                 var damage = collision.gameObject.GetComponent<Fireball>().damage;
                 soHealth.Value -= damage;
@@ -71,5 +76,15 @@ public class PlayerHealth : MonoBehaviour
             Physics2D.IgnoreLayerCollision(8, 11, false);
         }
         isImmune = false;
+    }
+
+    void PlayDamageSound()
+    {
+        // possibly check to make sure we're the main player so we can only play the sound once
+        // i don't want to split this script off or anything, so it'd be nice to figure out
+        // who the main player is
+        var random = Random.Range(0, 3);
+        Debug.Log($"playing a random sound... {random}");
+        source.PlayOneShot(clips[random]);
     }
 }
