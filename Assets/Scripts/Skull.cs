@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Skull : MonoBehaviour, IClickable
@@ -7,6 +5,8 @@ public class Skull : MonoBehaviour, IClickable
     [SerializeField] BoolSO pickedUpSkull;
     [SerializeField] BoolSO attachedSkull;
     [SerializeField] GameObject skullPrefab;
+
+    AudioSource source => GetComponent<AudioSource>();
 
     private GameObject skull;
 
@@ -20,6 +20,7 @@ public class Skull : MonoBehaviour, IClickable
         if (attachedSkull.Value) return;
         else
         {
+            source.Play();
             pickedUpSkull.Value = true;
             Destroy(skull);
         }

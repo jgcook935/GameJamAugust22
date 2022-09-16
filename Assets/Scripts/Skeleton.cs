@@ -11,6 +11,9 @@ public class Skeleton : MonoBehaviour, IClickable
     [SerializeField] GameObject dialogBoxPrefab;
     [SerializeField] GameObject swordGraphicsPrefab;
     GameObject dialogBox;
+    AudioSource source => GetComponent<AudioSource>();
+    [SerializeField] AudioClip swordActivation;
+
     private bool turnedSwordOff = false;
     public List<string> text { get; set; } = new List<string>
     {
@@ -63,6 +66,7 @@ public class Skeleton : MonoBehaviour, IClickable
         }
         else if (pickedUpSkull.Value && !attachedSkull.Value)
         {
+            source.Play();
             var skull = Instantiate(skullPrefab, transform);
             skull.transform.position = skull.transform.position + new Vector3(0, 1, 0);
             attachedSkull.Value = true;
@@ -77,8 +81,10 @@ public class Skeleton : MonoBehaviour, IClickable
 
     void GiveSword()
     {
+        source.PlayOneShot(swordActivation);
         var player = GameObject.FindWithTag("Player");
         player.GetComponentInChildren<Sword>().enabled = true;
+        CharacterManager.Instance.SetControlsEnabled(false);
         var sword = Instantiate(swordGraphicsPrefab, player.transform);
         sword.transform.position = sword.transform.position + new Vector3(0f, 1f, 0f);
         StartCoroutine(DestroyAfter(sword));
@@ -88,5 +94,6 @@ public class Skeleton : MonoBehaviour, IClickable
     {
         yield return new WaitForSeconds(2f);
         Destroy(someObject);
+        CharacterManager.Instance.SetControlsEnabled(true);
     }
 }

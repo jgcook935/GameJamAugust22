@@ -28,10 +28,11 @@ public class DialogBoxController : MonoBehaviour, IClickable
         CharacterManager.Instance.SetControlsEnabled(false);
     }
 
-    void Start()
-    {
-        PlayRandomPaperSound();
-    }
+    // i tried having the paper sound play when the first box opens, but we tend to do other sounds when it opens so i think it's fine to just have page turning make a sound
+    //void Start()
+    //{
+    //    PlayRandomPaperSound();
+    //}
 
     void Update()
     {
