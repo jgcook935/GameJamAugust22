@@ -14,6 +14,7 @@ public class SwiftClif : MonoBehaviour, IClickable
     AudioSource source => GetComponent<AudioSource>();
     public AudioClip start;
     public AudioClip clap;
+    public AudioClip keyReveal;
     public Rigidbody2D rb;
     GameObject dialogBox;
     public bool raceStarted = false;
@@ -102,6 +103,8 @@ public class SwiftClif : MonoBehaviour, IClickable
     private void GiveKey()
     {
         hasKeySO.Value = true;
+        source.PlayOneShot(keyReveal);
+        CharacterManager.Instance.SetControlsEnabled(false);
         var playerTransform = CharacterManager.Instance.activePlayer.gameObject.transform;
         key.transform.SetParent(playerTransform);
         key.transform.position = playerTransform.position + new Vector3(0f, 1f, 0f);
@@ -112,5 +115,6 @@ public class SwiftClif : MonoBehaviour, IClickable
     {
         yield return new WaitForSeconds(2f);
         Destroy(someObject);
+        CharacterManager.Instance.SetControlsEnabled(true);
     }
 }

@@ -5372,9 +5372,9 @@ MonoBehaviour:
   hasAttemptedRace: {fileID: 11400000, guid: 464e94c50db96436a80d736ef43a9c69, type: 2}
   animator: {fileID: 8348769636847963873}
   key: {fileID: 1537374984}
-  source: {fileID: 8348769636847963868}
   start: {fileID: 8300000, guid: 72ca2e43ca0c242069f6b27bdec8fb9b, type: 3}
   clap: {fileID: 8300000, guid: 7cf1ef67a3bc94c2ea56af296a0eebc2, type: 3}
+  keyReveal: {fileID: 8300000, guid: 3affdecfd88a042b79696defff39a989, type: 3}
   rb: {fileID: 8348769636847963870}
   raceStarted: 0
 --- !u!4 &8348769636847963872
